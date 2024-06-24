@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7vrrvn0tgfem"]
+
+[ext_resource type="Script" path="res://Scripts/Finish.gd" id="1_si6p4"]
+
+[sub_resource type="Gradient" id="Gradient_f12dh"]
+colors = PackedColorArray(0, 0.160784, 0.419608, 1, 0, 0.160784, 0.419608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_et3hu"]
+gradient = SubResource("Gradient_f12dh")
+
+[node name="Finish" type="CanvasLayer"]
+script = ExtResource("1_si6p4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_et3hu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResultsContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ResultsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ResultsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Results" type="Label" parent="MarginContainer/VBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Resultados:"
+
+[node name="Wrong" type="Label" parent="MarginContainer/VBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+text = "Incorrectas:"
+
+[node name="WrongResults" type="Label" parent="MarginContainer/VBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="Correct" type="Label" parent="MarginContainer/VBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+text = "Correctas:"
+
+[node name="CorrectResults" type="Label" parent="MarginContainer/VBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(384, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+text = "Regresar"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

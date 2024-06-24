@@ -1,0 +1,317 @@
+[gd_scene load_steps=4 format=3 uid="uid://wdbnvwisn2a1"]
+
+[ext_resource type="Script" path="res://Scripts/Stats.gd" id="1_ao3he"]
+
+[sub_resource type="Gradient" id="Gradient_t7qta"]
+colors = PackedColorArray(0, 0.160784, 0.419608, 1, 0, 0.160784, 0.419608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3k24s"]
+gradient = SubResource("Gradient_t7qta")
+
+[node name="Stats" type="CanvasLayer"]
+script = ExtResource("1_ao3he")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_3k24s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Head" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"Header"
+text = "Estadísticas
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WordsContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/WordsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Results" type="Label" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "Palabras:"
+
+[node name="Words" type="VBoxContainer" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words"]
+layout_mode = 2
+
+[node name="Total" type="Label" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Total:"
+
+[node name="WT" type="Label" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.08
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Correct" type="Label" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+text = "Correctas:"
+
+[node name="WC" type="Label" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Wrong" type="Label" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+text = "Incorrectas:"
+
+[node name="WW" type="Label" parent="MarginContainer/VBoxContainer/WordsContainer/MarginContainer/VBoxContainer/Words/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="PhrasesContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PhrasesContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "Frases:"
+
+[node name="Frases" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases"]
+layout_mode = 2
+
+[node name="Total" type="Label" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Total:"
+
+[node name="PT" type="Label" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.08
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Correct" type="Label" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+text = "Correctas:"
+
+[node name="PC" type="Label" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Wrong" type="Label" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+text = "Incorrectas:"
+
+[node name="PW" type="Label" parent="MarginContainer/VBoxContainer/PhrasesContainer/MarginContainer/VBoxContainer/Frases/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="TotalContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TotalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Results" type="Label" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "Palabras y frases:"
+
+[node name="Total" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total"]
+layout_mode = 2
+
+[node name="Total" type="Label" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Total:"
+
+[node name="TT" type="Label" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.08
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Correct" type="Label" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+text = "Correctas:"
+
+[node name="TC" type="Label" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"CorrectLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Wrong" type="Label" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+text = "Incorrectas:"
+
+[node name="TW" type="Label" parent="MarginContainer/VBoxContainer/TotalContainer/MarginContainer/VBoxContainer/Total/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"WrongLabel"
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.49
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(384, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+text = "Regresar"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

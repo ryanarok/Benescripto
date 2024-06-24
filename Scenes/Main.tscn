@@ -1,0 +1,244 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0l2k6fupxggb"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_l36u3"]
+
+[sub_resource type="Gradient" id="Gradient_t7qta"]
+colors = PackedColorArray(0, 0.160784, 0.419608, 1, 0, 0.160784, 0.419608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bk8oh"]
+gradient = SubResource("Gradient_t7qta")
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_l36u3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_bk8oh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="StatsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Estadisticas
+"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ajustes"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HeaderLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"Header"
+text = "Benescripto"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HeaderLabel2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 40
+text = "Configure el entrenamiento:"
+
+[node name="SelectContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="WordLevelContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer"]
+layout_mode = 2
+text = "    Palabras:
+"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CheckBoxLevelI" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Nivel I"
+
+[node name="CheckBoxLevelII" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Nivel II"
+
+[node name="CheckBoxLevelIII" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Nivel III"
+
+[node name="PhraseTypeContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer"]
+layout_mode = 2
+text = "    Frases:"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CheckBoxPhrases1" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Refranes"
+
+[node name="CheckBoxPhrases2" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Vida"
+
+[node name="CheckBoxPhrases3" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Amistad"
+
+[node name="CheckBoxPhrases4" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sentimientos"
+
+[node name="CheckBoxPhrases5" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ciencia"
+
+[node name="CheckBoxPhrases6" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Informática"
+
+[node name="WarningLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.784314, 0, 0, 0)
+theme_override_font_sizes/font_size = 32
+text = "¡Debes seleccionar al menos 1 categoría!"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="BottomHContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cantidad de
+palabras/frases:"
+
+[node name="TrainingWordsBox" type="SpinBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+value = 10.0
+rounded = true
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Probabilidad de audio:"
+
+[node name="AudioProbsBox" type="SpinBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "EMPEZAR"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer/PanelContainer/VBoxContainer/CheckBoxLevelI" to="." method="_on_check_box_level_i_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer/PanelContainer/VBoxContainer/CheckBoxLevelII" to="." method="_on_check_box_level_ii_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/WordLevelContainer/PanelContainer/VBoxContainer/CheckBoxLevelIII" to="." method="_on_check_box_level_iii_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer/CheckBoxPhrases1" to="." method="_on_check_box_phrases_1_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer/CheckBoxPhrases2" to="." method="_on_check_box_phrases_2_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer/CheckBoxPhrases3" to="." method="_on_check_box_phrases_3_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer/CheckBoxPhrases4" to="." method="_on_check_box_phrases_4_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer/CheckBoxPhrases5" to="." method="_on_check_box_phrases_5_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/SelectContainer/PhraseTypeContainer/PanelContainer/VBoxContainer/CheckBoxPhrases6" to="." method="_on_check_box_phrases_6_toggled"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer/VBoxContainer/TrainingWordsBox" to="." method="_on_training_words_box_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/VBoxContainer/VBoxContainer2/AudioProbsBox" to="." method="_on_audio_probs_box_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BottomHContainer/StartButton" to="." method="_on_start_button_pressed"]

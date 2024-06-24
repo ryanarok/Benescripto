@@ -1,0 +1,140 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnrusp85g6f6q"]
+
+[ext_resource type="Script" path="res://Scripts/Options.gd" id="1_ktssb"]
+
+[sub_resource type="Gradient" id="Gradient_t7qta"]
+colors = PackedColorArray(0, 0.160784, 0.419608, 1, 0, 0.160784, 0.419608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kcrwx"]
+gradient = SubResource("Gradient_t7qta")
+
+[node name="Options" type="CanvasLayer"]
+script = ExtResource("1_ktssb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_kcrwx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Head" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"Header"
+text = "Ajustes
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Voice" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Voz:"
+
+[node name="VoiceSelector" type="OptionButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Volume" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Volumen:"
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 50.0
+rounded = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Pitch" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Tono:
+"
+
+[node name="PitchSlider" type="HSlider" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 1.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Rate" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Rapidez:"
+
+[node name="RateSlider" type="HSlider" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="ListenButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Escuchar"
+
+[node name="BackButton" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Atrás"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer3/PitchSlider" to="." method="_on_pitch_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer4/RateSlider" to="." method="_on_rate_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ListenButton" to="." method="_on_listen_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

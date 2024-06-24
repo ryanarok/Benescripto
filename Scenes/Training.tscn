@@ -1,0 +1,192 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcpeka3vcyva8"]
+
+[ext_resource type="Script" path="res://Scripts/Training.gd" id="1_t3trm"]
+
+[sub_resource type="Gradient" id="Gradient_t7qta"]
+colors = PackedColorArray(0, 0.160784, 0.419608, 1, 0, 0.160784, 0.419608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u0ed4"]
+gradient = SubResource("Gradient_t7qta")
+
+[node name="Training" type="CanvasLayer"]
+script = ExtResource("1_t3trm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_u0ed4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Ajustes"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CorrectBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"CorrectBar"
+value = 50.0
+show_percentage = false
+
+[node name="WrongBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"WrongBar"
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CurrentWord" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0"
+
+[node name="Slash" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "/"
+
+[node name="TotalWords" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "10"
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "Head"
+
+[node name="DefinitionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DefinitionContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/DefinitionContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="DefinitionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/DefinitionContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ListenContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/ListenContainer"]
+layout_mode = 2
+
+[node name="ListenButton" type="Button" parent="MarginContainer/VBoxContainer/ListenContainer/CenterContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+text = "Escuchar
+"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer3/MarginContainer"]
+layout_mode = 2
+
+[node name="PhraseEdit" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer3/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"FakeTextEdit"
+text = "Escriba la frase:"
+
+[node name="FakeLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer3/MarginContainer/VBoxContainer/PhraseEdit"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_type_variation = &"FakeLineEdit"
+placeholder_text = "Escribe la frase..."
+virtual_keyboard_type = 6
+
+[node name="WordEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer3/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 6
+placeholder_text = "Escribe la palabra..."
+virtual_keyboard_type = 6
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "Comprobar"
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ListenContainer/CenterContainer/ListenButton" to="." method="_on_listen_button_pressed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/VBoxContainer3/MarginContainer/VBoxContainer/PhraseEdit/FakeLineEdit" to="." method="_on_word_edit_2_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/VBoxContainer3/MarginContainer/VBoxContainer/WordEdit" to="." method="_on_word_edit_text_submitted"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
